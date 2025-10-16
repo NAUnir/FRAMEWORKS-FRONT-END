@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { ListService } from '../../services/list-service';
 
 @Component({
   selector: 'app-lista',
@@ -8,5 +9,6 @@ import { NgFor } from '@angular/common';
   styleUrl: './lista.css',
 })
 export class Lista {
-  items = ['An item', 'A second item', 'A third item', 'A fourth item'];
+  service = inject(ListService);
+  items = this.service.getItems();
 }
