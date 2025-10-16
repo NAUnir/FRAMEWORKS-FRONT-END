@@ -1,9 +1,5 @@
 <h1>Lista</h1>
 
 <ul class="list-group">
-  <li class="list-group-item">{{item.item1}}</li>
-  <li class="list-group-item">{{item.item2}}</li>
-  <li class="list-group-item">{{item.item3}}</li>
-  <li class="list-group-item">{{item.item4}}</li>
-  <li class="list-group-item">And a fifth one</li>
+  <li class="list-group-item" *ngFor="let item of items">{{item}}</li>
 </ul>

@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-lista',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './lista.html',
   styleUrl: './lista.css',
 })
 export class Lista {
-  item = {
-    item1: 'An item',
-    item2: 'A second item',
-    item3: 'A third item',
-    item4: 'A fourth item',
-  };
+  items = ['An item', 'A second item', 'A third item', 'A fourth item'];
 }
