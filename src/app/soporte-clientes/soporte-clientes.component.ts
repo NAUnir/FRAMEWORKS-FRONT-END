@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-soporte-clientes',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './soporte-clientes.component.html',
-  styleUrls: ['./soporte-clientes.component.css']
+  styleUrls: ['./soporte-clientes.component.css'],
 })
 export class SoporteClientesComponent implements OnInit {
+  formSoporte = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    surname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    clientId: new FormControl(''),
+    subject: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    message: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    gender: new FormControl('Señora', [Validators.required]),
+    terms: new FormControl(false, [Validators.requiredTrue]),
+  });
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit() {
+    console.log(this.formSoporte.value);
   }
-
 }

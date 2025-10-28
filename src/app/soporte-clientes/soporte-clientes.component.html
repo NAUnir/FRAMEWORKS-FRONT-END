@@ -2,24 +2,25 @@
     <div class="row justify-content-center">
       <div class="col col-md-12 col-lg-12 col-xl-12">
         <h5>Escríbenos</h5>
-        <form>
+        <form [formGroup]="formSoporte" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="inputAsunto">Asunto</label>
             <input type="text"
                    class="form-control"
                    id="inputAsunto"
                    placeholder=""
+                   formControlName="subject"
                    >
           </div>
           <div class="form-group">
             <label for="inputMessage">Tu pregunta/mensaje:</label>
-            <textarea class="form-control" id="inputMessage" rows="3" name="inputMessage"></textarea>
+            <textarea class="form-control" id="inputMessage" rows="3" formControlName="message"></textarea>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="inputGenero">
                 Estimado/a :</label>
-              <select id="inputGenero" class="form-control" >
+              <select id="inputGenero" class="form-control" formControlName="gender">
                 <option selected>Señora</option>
                 <option>Señor</option>
               </select>
@@ -27,26 +28,26 @@
   
             <div class="form-group co-md-12">
               <label for="inputName">Nombre</label>
-              <input type="text" class="form-control" id="inputName" >
+              <input type="text" class="form-control" id="inputName" formControlName="name">
             </div>
             <div class="form-group col-md-12">
               <label for="inputLastname">Apellido</label>
-              <input type="text" class="form-control" id="inputLastname" >
+              <input type="text" class="form-control" id="inputLastname" formControlName="surname">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="inputEmail">Dirección de e-mail:</label>
-              <input type="email" class="form-control" id="inputEmail" >
+              <input type="email" class="form-control" id="inputEmail" formControlName="email">
             </div>
             <div class="form-group col-md-12">
               <label for="inputId">Número de cliente (opcional):</label>
-              <input type="text" class="form-control" id="inputId" >
+              <input type="text" class="form-control" id="inputId" formControlName="clientId">
             </div>
           </div>
           <div class="form-group">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="terms">
               <label class="form-check-label" for="gridCheck">
                 He leído y acepto los términos y condiciones, la advertencia sobre el derecho de revocación de consumidores, así como la normativa de protección de datos.
               </label>

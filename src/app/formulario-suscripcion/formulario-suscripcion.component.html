@@ -3,27 +3,28 @@
     <div class="col col-md-8 col-lg-6 col-xl-6">
 
       <h5>Suscríbete al servicio</h5>
-      <form >
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
         <div class="form-group mb-3">
           <label for="name" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre"  [(ngModel)]="clientData.name" required>
         </div>
         <div class=" form-group mb-3">
           <label for="lastname" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellido"  required>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellido"  [(ngModel)]="clientData.surname" required>
         </div>
         <div class="form-group mb-3">
           <label for="address" class="form-label">Dirección</label>
-          <input type="text" class="form-control" id="address" name="address" placeholder="Dirección"  required>
+          <input type="text" class="form-control" id="address" name="address" placeholder="Dirección"  [(ngModel)]="clientData.address" required>
         </div>
         <div class="form-group mb-3">
           <label for="phone" class="form-label">Teléfono</label>
-          <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono"  required>
+          <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono"  [(ngModel)]="clientData.phone" required>
         </div>
         <div class="form-group mb-3">
           <label for="email" class="form-label">Email</label>
           <input type="email" class="form-control" id="email"
                  name="email"
+                 [(ngModel)]="clientData.email"
                  required
                  >
         </div>
