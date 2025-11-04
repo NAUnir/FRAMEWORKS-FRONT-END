@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-soporte-clientes',
@@ -9,7 +9,8 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
   styleUrls: ['./soporte-clientes.component.css'],
 })
 export class SoporteClientesComponent implements OnInit {
-  formSoporte = new FormGroup({
+  formBuilder = inject(FormBuilder);
+  formSoporte = this.formBuilder.group({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     surname: new FormControl('', [Validators.required, Validators.minLength(3)]),
