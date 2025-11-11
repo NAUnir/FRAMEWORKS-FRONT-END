@@ -7,15 +7,21 @@
 </div>
 
 <div class="container">
+  @if(showError){
+    <div class="alert alert-danger" role="alert">
+      Ocurrió un error al cargar los precios. Por favor, inténtelo de nuevo más tarde.
+    </div>
+  }
 
   <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  @for(precio of precios; track precio.id) {
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
           <h4 class="my-0 fw-normal">Básico</h4>
         </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mensual</small></h1>
+        <div class="card-body" >
+              <h1 class="card-title pricing-card-title">${{precio.precio}}<small class="text-body-secondary fw-light">/mensual</small></h1>
           <ul class="list-unstyled mt-3 mb-4">
             <li>10 usuarios incluidos</li>
             <li>2 GB de almacenamiento</li>
@@ -26,42 +32,8 @@
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card mb-4 rounded-3 shadow-sm">
-        <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Pro</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mensual</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>20 usuarios incluidos</li>
-            <li>10 GB de almacenamiento</li>
-            <li>Soporte Email premiun</li>
-            <li>Acceso a centro de ayuda</li>
-          </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Comenzar</button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mb-4 rounded-3 shadow-sm border-primary">
-        <div class="card-header py-3 text-bg-primary border-primary">
-          <h4 class="my-0 fw-normal">Profesional</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mensual</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>30 usuarios incluidos</li>
-            <li>15 GB de almacenamiento</li>
-            <li>Soporte teléfonico y vía Email</li>
-            <li>Acceso a centro de ayuda</li>
-          </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Contáctenos</button>
-        </div>
-      </div>
-    </div>
+  }
   </div>
-
 </div>
 <app-footer></app-footer>
 

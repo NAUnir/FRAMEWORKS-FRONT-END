@@ -14,14 +14,21 @@ export class PreciosComponent implements OnInit {
 
   preciosSignal = signal(100);
   precios = [];
+  showError = false;
 
   constructor(private pricesService: PricesService) {}
 
   ngOnInit() {
-    this.pricesService.getPrices().subscribe((data: any) => {
-      this.precios = data.slice(0, 3);
-      console.log('Datos recibidos:', this.precios);
-    });
+    this.pricesService.getPrices().subscribe(
+      (data: any) => {
+        this.precios = data.slice(0, 3);
+        console.log('Datos recibidos:', this.precios);
+      },
+      (error) => {
+        this.showError = true;
+        console.error('Error al obtener los precios:', error);
+      }
+    );
 
     console.log('precio inicial del signal:', this.preciosSignal());
     this.preciosSignal.set(150);
